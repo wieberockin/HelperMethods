@@ -22,7 +22,7 @@ namespace HelperMethods
             Console.Write("What's your last name? ");
             string lastName = Console.ReadLine();
 
-            Console.Write("In what city were you born?");
+            Console.Write("In what city were you born? ");
             string city = Console.ReadLine();
 
             /*
@@ -61,10 +61,11 @@ namespace HelperMethods
             */
 
             Console.WriteLine("Results: " );
-            ReverseString(firstName);
-            ReverseString(lastName);
-            ReverseString(city);
 
+
+            DisplayResults(ReverseString(firstName), 
+                ReverseString(lastName), 
+                ReverseString(city));
             Console.ReadLine();
 
             
@@ -72,15 +73,23 @@ namespace HelperMethods
         }
 
 
-        private static void ReverseString(string message)
+        private static string ReverseString(string message)
         {
             char[] messageArray = message.ToCharArray();
             Array.Reverse(messageArray);
-            foreach (char item in messageArray)
-            {
-                Console.Write(item);
-            }
-            Console.Write(" ");
+            return String.Concat(messageArray);
+        }
+
+        private static void DisplayResults(
+            string reversedFirstName, 
+            string reversedLastName, 
+            string reversedCity)
+        {
+            Console.Write(String.Format(" {0} {1} {2}",
+                reversedFirstName,
+                reversedLastName,
+                reversedCity));
+
         }
 
     }

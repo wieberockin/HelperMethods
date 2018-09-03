@@ -10,12 +10,9 @@ namespace HelperMethods
     {
         static void Main(string[] args)
         {
-
             
             Console.WriteLine("The Name Game");
 
-
-            
             Console.Write("What's your first name? ");
             string firstName = Console.ReadLine();
 
@@ -25,50 +22,17 @@ namespace HelperMethods
             Console.Write("In what city were you born? ");
             string city = Console.ReadLine();
 
-            /*
-            char[] firstNameArray = firstName.ToCharArray();
-            Array.Reverse(firstNameArray);
-
-            char[] lastNameArray = lastName.ToCharArray();
-            Array.Reverse(lastNameArray);
-
-            char[] cityArray = city.ToCharArray();
-            Array.Reverse(cityArray);
-
-            string result = "";
-
-            foreach (char item in firstNameArray)
-            {
-                result += item;
-            }
-
-            result += " ";
-
-            foreach (char item in lastNameArray)
-            {
-                result += item;
-            }
-
-            result += " ";
-
-            foreach (char item in cityArray)
-            {
-                result += item;
-            }
-
-            Console.WriteLine("Results: " + result);
-
-            */
-
-            Console.WriteLine("Results: " );
-
-
             DisplayResults(ReverseString(firstName), 
                 ReverseString(lastName), 
                 ReverseString(city));
-            Console.ReadLine();
 
-            
+            Console.WriteLine();
+
+            DisplayResults(ReverseString(firstName) + " " +
+                ReverseString(lastName) + " " +
+                ReverseString(city));
+
+            Console.ReadLine();
 
         }
 
@@ -89,7 +53,13 @@ namespace HelperMethods
                 reversedFirstName,
                 reversedLastName,
                 reversedCity));
+        }
 
+        private static void DisplayResults(string message)
+
+        {
+            Console.Write("Results: ");
+            Console.Write(message);
         }
 
     }
